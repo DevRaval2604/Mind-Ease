@@ -4,6 +4,20 @@ function Label({ children }) {
   return <div className="text-xs font-semibold text-gray-700 mb-1 uppercase tracking-wide">{children}</div>;
 }
 
+function Sidebar() {
+  return (
+    <aside className="w-60 shrink-0 border-r border-gray-200 p-4 hidden md:block sticky top-0 h-screen overflow-y-auto">
+      <div className="font-semibold text-gray-900 mb-4">MindEase</div>
+      <nav className="space-y-2 text-sm">
+        <a className="block px-3 py-2 rounded-md bg-blue-50 text-blue-700" href="#">Dashboard</a>
+        <a className="block px-3 py-2 rounded-md hover:bg-gray-50" href="/appointments/book">Appointments</a>
+        <a className="block px-3 py-2 rounded-md hover:bg-gray-50" href="/profile">Profile</a>
+        <a className="block px-3 py-2 rounded-md hover:bg-gray-50" href="#">Settings</a>
+      </nav>
+    </aside>
+  );
+}
+
 function ClientProfile() {
   const [profile, setProfile] = useState({
     fullName: '',
@@ -44,14 +58,14 @@ function ClientProfile() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex">
+      <Sidebar />
+      <div className="flex-1 px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Profile Settings</h1>
           <p className="text-gray-600">Manage your personal information and preferences</p>
         </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Profile Card */}
           <div className="lg:col-span-1">
